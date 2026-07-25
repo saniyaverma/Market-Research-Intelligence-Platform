@@ -4,20 +4,20 @@ from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
-from app.agents.planner import planner_agent
+from app.agents.root import root_agent
 
 APP_NAME = "arip"
 
 session_service = InMemorySessionService()
 
 runner = Runner(
-    agent=planner_agent,
+    agent=root_agent,
     app_name=APP_NAME,
     session_service=session_service,
 )
 
 
-async def run_planner(query: str) -> str:
+async def run_root_agent(query: str) -> str:
     user_id = "local-user"
     session_id = str(uuid.uuid4())
 
