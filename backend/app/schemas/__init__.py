@@ -1,13 +1,14 @@
-from .research_task import ResearchTask
-from .research_plan import ResearchPlan
+from .research_plan import ResearchPlan, ResearchTask
 from .evidence import Evidence
 from .finding import Finding, Findings
-from .report import Report
+from .report import Report, ReportSection
 
 __all__ = [
-    "ResearchTask",
     "ResearchPlan",
+    "ResearchTask",
     "Evidence",
     "Finding",
+    "Findings",
     "Report",
+    "ReportSection",
 ]
