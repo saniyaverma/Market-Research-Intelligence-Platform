@@ -1,7 +1,8 @@
 import json
 
-from app.schemas import Evidence
+from app.schemas import Evidence, Findings
 from app.services.research_runner import run_research_agent
+from app.services.verifier_runner import run_verifier_agent
 from app.workspace import WorkspaceManager
 
 
@@ -28,6 +29,23 @@ class ResearchWorkflow:
             WorkspaceManager.add_evidence(
                 workspace.id,
                 evidence,
+            )
+
+        # Refresh workspace to get all collected evidence
+        workspace = WorkspaceManager.get(workspace.id)
+
+        verifier_response = await run_verifier_agent(
+            workspace.evidence
+        )
+
+        findings_data = json.loads(verifier_response)
+
+        findings = Findings.model_validate(findings_data)
+
+        for finding in findings.findings:
+            WorkspaceManager.add_finding(
+                workspace.id,
+                finding,
             )
 
         return WorkspaceManager.get(workspace.id)
