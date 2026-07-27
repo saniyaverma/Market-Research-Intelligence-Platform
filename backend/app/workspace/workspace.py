@@ -10,6 +10,7 @@ from app.schemas import (
     Report,
 )
 from app.workspace.status import WorkspaceStatus
+from app.workspace.execution import ExecutionContext
 
 
 class Workspace(BaseModel):
@@ -20,6 +21,8 @@ class Workspace(BaseModel):
 
     # Workspace lifecycle
     status: WorkspaceStatus = WorkspaceStatus.CREATED
+
+    execution: ExecutionContext = Field(default_factory=ExecutionContext)
 
     # Timestamps
     created_at: datetime = Field(default_factory=datetime.utcnow)

@@ -4,13 +4,10 @@ from enum import Enum
 class WorkspaceStatus(str, Enum):
     CREATED = "created"
 
-    PLANNING = "planning"
-    PLANNED = "planned"
+    ACTIVE = "active"
 
-    RESEARCHING = "researching"
-    RESEARCHED = "researched"
-
-    REPORTING = "reporting"
     COMPLETED = "completed"
 
     FAILED = "failed"
+
+    ARCHIVED = "archived"

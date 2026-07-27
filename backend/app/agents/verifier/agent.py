@@ -55,6 +55,26 @@ Rules:
 - Base every finding only on the supplied evidence.
 - Merge related evidence into a single finding whenever appropriate.
 - Every finding must include supporting evidence.
+
+Confidence Guidelines:
+
+1.0
+Multiple independent, authoritative sources fully agree.
+
+0.9
+Multiple credible sources support the finding.
+
+0.75
+Supported by one strong source or several weaker sources.
+
+0.5
+Evidence is limited or partially conflicting.
+
+0.25
+Weak evidence.
+
+0.0
+Unsupported.
 """,
     output_schema=Findings,
     output_key="findings",

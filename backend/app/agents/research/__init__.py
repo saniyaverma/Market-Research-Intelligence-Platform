@@ -1,5 +1,5 @@
-from .agent import research_agent
+from .agent import create_research_agent
 
 __all__ = [
-    "research_agent",
+    "create_research_agent",
 ]
